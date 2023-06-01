@@ -333,7 +333,7 @@ class ComponentBuilder():
                 layer = log.get('id', '')
                 if status:
                     logging.info(f'{docker_log_prefix}: {layer} {status}')
-        except docker.errors.BuildError as e:
+        except docker.errors.APIError as e:
             logging.error(f'{docker_log_prefix}: {e}')
             raise e
 
